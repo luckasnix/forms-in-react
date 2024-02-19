@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { TextInput } from '../text-input'
 import { Select } from '../select'
 import { RadioGroup } from '../radio-group'
+import { Checkbox } from '../checkbox'
 import { genders, educationLevels } from './constants'
 import type { GenderValue, EducationLevelValue } from './types'
 
@@ -61,17 +62,13 @@ export const Form = () => {
         setValue={setEducationLevel}
         buttons={educationLevels}
       />
-      {/* Elemento "checkbox" controlado */}
-      <div>
-        <input
-          type='checkbox'
-          id='agreement'
-          name='agreement'
-          checked={wasAgreed}
-          onChange={(event) => setWasAgreed(event.target.checked)}
-        />
-        <label htmlFor='agreement'>Declaro que as informações acima prestadas são verdadeiras</label>
-      </div>
+      <Checkbox
+        id='agreement'
+        name='agreement'
+        label='Declaro que as informações acima prestadas são verdadeiras'
+        value={wasAgreed}
+        setValue={setWasAgreed}
+      />
       <button type='submit'>Salvar</button>
     </form>
   )
