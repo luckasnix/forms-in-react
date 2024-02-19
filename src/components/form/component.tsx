@@ -4,6 +4,7 @@ import { TextInput } from '../text-input'
 import { Select } from '../select'
 import { RadioGroup } from '../radio-group'
 import { Checkbox } from '../checkbox'
+import { SubmitButton } from '../submit-button'
 import { genders, educationLevels } from './constants'
 import type { GenderValue, EducationLevelValue } from './types'
 
@@ -69,7 +70,7 @@ export const Form = () => {
         value={wasAgreed}
         setValue={setWasAgreed}
       />
-      <button type='submit'>Salvar</button>
+      <SubmitButton label='Salvar' />
     </form>
   )
 }
