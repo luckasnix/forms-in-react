@@ -1,4 +1,6 @@
-export const genders = [
+import type { Gender, EducationLevel } from './types'
+
+export const genders: Array<Gender> = [
   {
     label: 'Feminino',
     value: 'female',
@@ -9,7 +11,7 @@ export const genders = [
   },
 ]
 
-export const educationLevels = [
+export const educationLevels: Array<EducationLevel> = [
   {
     label: 'Ensino Fundamental',
     value: 'primary',

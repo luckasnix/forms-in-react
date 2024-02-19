@@ -1,15 +1,16 @@
 import { useState, Fragment } from 'react'
 
 import { genders, educationLevels } from './constants'
+import type { GenderValue, EducationLevelValue } from './types'
 
 import './styles.css'
 
 export const Form = () => {
   // Estados dos campos do formulário
-  const [name, setName] = useState('')
-  const [gender, setGender] = useState('')
-  const [educationLevel, setEducationLevel] = useState('')
-  const [wasAgreed, setWasAgreed] = useState(false)
+  const [name, setName] = useState<string>('')
+  const [gender, setGender] = useState<GenderValue | ''>('')
+  const [educationLevel, setEducationLevel] = useState<EducationLevelValue | ''>('')
+  const [wasAgreed, setWasAgreed] = useState<boolean>(false)
 
   // Função para resetar o formulário após o envio
   const resetForm = () => {
@@ -50,7 +51,7 @@ export const Form = () => {
           id='gender'
           name='gender'
           value={gender}
-          onChange={(event) => setGender(event.target.value)}
+          onChange={(event) => setGender(event.target.value as GenderValue)}
         >
           <option value='' disabled>Seu gênero</option>
           {genders.map(({ label, value }) => (
@@ -69,7 +70,7 @@ export const Form = () => {
               name={`education-level-${value}`}
               checked={educationLevel === value}
               value={value}
-              onChange={(event) => setEducationLevel(event.target.value)}
+              onChange={(event) => setEducationLevel(event.target.value as EducationLevelValue)}
             />
             <label htmlFor={`education-level-${value}`}>{label}</label>
             <br />
