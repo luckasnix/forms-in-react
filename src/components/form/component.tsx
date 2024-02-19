@@ -61,8 +61,9 @@ export const Form = () => {
       </div>
       {/* Elemento "radio" controlado */}
       <div>
-        <legend>Selecione o seu nível de escolaridade:</legend>
-        {educationLevels.map(({ label, value }) => (
+        <label>Selecione o seu nível de escolaridade:</label>
+        <br />
+        {educationLevels.map(({ label, value }, index) => (
           <Fragment key={value}>
             <input
               type='radio'
@@ -73,7 +74,8 @@ export const Form = () => {
               onChange={(event) => setEducationLevel(event.target.value as EducationLevelValue)}
             />
             <label htmlFor={`education-level-${value}`}>{label}</label>
-            <br />
+            {/* Não adiciona o elemento "br" após o último "radio" */}
+            {index !== educationLevels.length - 1 && <br />}
           </Fragment>
         ))}
       </div>
