@@ -1,6 +1,7 @@
 import { useState, Fragment } from 'react'
 
 import { TextInput } from '../text-input'
+import { Select } from '../select'
 import { genders, educationLevels } from './constants'
 import type { GenderValue, EducationLevelValue } from './types'
 
@@ -39,27 +40,23 @@ export const Form = () => {
         value={name}
         setValue={setName}
       />
-      {/* Elemento "select" controlado */}
-      <div>
-        <label htmlFor='gender'>Selecione o seu gênero:</label>
-        <br />
-        <select
-          id='gender'
-          name='gender'
-          value={gender}
-          onChange={(event) => setGender(event.target.value as GenderValue)}
-        >
-          <option value='' disabled>Seu gênero</option>
-          {genders.map(({ label, value }) => (
-            <option key={value} value={value}>{label}</option>
-          ))}
-        </select>
-      </div>
+      <Select
+        id='gender'
+        name='gender'
+        label='Selecione o seu gênero:'
+        value={gender}
+        setValue={setGender}
+        options={genders}
+        disabledOption={{
+          value: '',
+          label: 'Seu gênero',
+        }}
+      />
       {/* Elemento "radio" controlado */}
       <div>
         <label>Selecione o seu nível de escolaridade:</label>
         <br />
-        {educationLevels.map(({ label, value }, index) => (
+        {educationLevels.map(({ value, label }, index) => (
           <Fragment key={value}>
             <input
               type='radio'

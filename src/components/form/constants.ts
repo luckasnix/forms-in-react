@@ -2,26 +2,26 @@ import type { Gender, EducationLevel } from './types'
 
 export const genders: Array<Gender> = [
   {
-    label: 'Feminino',
     value: 'female',
+    label: 'Feminino',
   },
   {
-    label: 'Masculino',
     value: 'male',
+    label: 'Masculino',
   },
 ]
 
 export const educationLevels: Array<EducationLevel> = [
   {
-    label: 'Ensino Fundamental',
     value: 'primary',
+    label: 'Ensino Fundamental',
   },
   {
-    label: 'Ensino Médio',
     value: 'secondary',
+    label: 'Ensino Médio',
   },
   {
-    label: 'Ensino Superior',
     value: 'tertiary',
+    label: 'Ensino Superior',
   },
 ]
