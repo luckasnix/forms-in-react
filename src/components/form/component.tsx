@@ -1,7 +1,8 @@
-import { useState, Fragment } from 'react'
+import { useState } from 'react'
 
 import { TextInput } from '../text-input'
 import { Select } from '../select'
+import { RadioGroup } from '../radio-group'
 import { genders, educationLevels } from './constants'
 import type { GenderValue, EducationLevelValue } from './types'
 
@@ -52,26 +53,14 @@ export const Form = () => {
           label: 'Seu gênero',
         }}
       />
-      {/* Elemento "radio" controlado */}
-      <div>
-        <label>Selecione o seu nível de escolaridade:</label>
-        <br />
-        {educationLevels.map(({ value, label }, index) => (
-          <Fragment key={value}>
-            <input
-              type='radio'
-              id={`education-level-${value}`}
-              name={`education-level-${value}`}
-              checked={educationLevel === value}
-              value={value}
-              onChange={(event) => setEducationLevel(event.target.value as EducationLevelValue)}
-            />
-            <label htmlFor={`education-level-${value}`}>{label}</label>
-            {/* Não adiciona o elemento "br" após o último "radio" */}
-            {index !== educationLevels.length - 1 && <br />}
-          </Fragment>
-        ))}
-      </div>
+      <RadioGroup
+        id='education-level'
+        name='education-level'
+        label='Selecione o seu nível de escolaridade:'
+        value={educationLevel}
+        setValue={setEducationLevel}
+        buttons={educationLevels}
+      />
       {/* Elemento "checkbox" controlado */}
       <div>
         <input
