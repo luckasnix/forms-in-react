@@ -34,7 +34,7 @@ export const Form = () => {
         resetForm()
       }}
     >
-      <h1>Dados Cadastrais</h1>
+      <h1>Cadastro</h1>
       <TextInput
         id='name'
         name='name'
@@ -66,11 +66,11 @@ export const Form = () => {
       <Checkbox
         id='agreement'
         name='agreement'
-        label='Declaro que as informações acima prestadas são verdadeiras'
+        label='Declaro que li e aceito os termos de uso e privacidade'
         value={wasAgreed}
         setValue={setWasAgreed}
       />
-      <SubmitButton label='Salvar' />
+      <SubmitButton label='Cadastrar' />
     </form>
   )
 }
