@@ -1,5 +1,6 @@
 import { useState, Fragment } from 'react'
 
+import { TextInput } from '../text-input'
 import { genders, educationLevels } from './constants'
 import type { GenderValue, EducationLevelValue } from './types'
 
@@ -30,19 +31,14 @@ export const Form = () => {
       }}
     >
       <h1>Dados Cadastrais</h1>
-      {/* Elemento "input" controlado */}
-      <div>
-        <label htmlFor='name'>Insira o seu nome:</label>
-        <br />
-        <input
-          type='text'
-          id='name'
-          name='name'
-          placeholder='João da Silva'
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
-      </div>
+      <TextInput
+        id='name'
+        name='name'
+        label='Insira o seu nome:'
+        placeholder='João da Silva'
+        value={name}
+        setValue={setName}
+      />
       {/* Elemento "select" controlado */}
       <div>
         <label htmlFor='gender'>Selecione o seu gênero:</label>
