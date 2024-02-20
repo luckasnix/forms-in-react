@@ -1,9 +1,7 @@
-import { Form } from './components/form'
+import { Home } from './pages/home'
 
 const App = () => (
-  <main>
-    <Form />
-  </main>
+  <Home />
 )
 
 export default App
