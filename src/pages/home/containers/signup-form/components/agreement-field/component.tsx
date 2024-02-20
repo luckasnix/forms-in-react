@@ -1,8 +1,8 @@
-import { useSignupForm } from '../../../../../../stores/signup-form'
+import { useSignupFormStore } from '../../../../../../stores/signup-form'
 import { Checkbox } from '../../../../../../common/components/checkbox'
 
 export const AgreementField = () => {
-  const { wasAgreed, setWasAgreed } = useSignupForm((state) => state)
+  const { wasAgreed, setWasAgreed } = useSignupFormStore((state) => state)
 
   return (
     <Checkbox

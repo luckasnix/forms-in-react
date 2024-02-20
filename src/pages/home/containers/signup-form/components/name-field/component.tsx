@@ -1,8 +1,8 @@
-import { useSignupForm } from '../../../../../../stores/signup-form'
+import { useSignupFormStore } from '../../../../../../stores/signup-form'
 import { TextInput } from '../../../../../../common/components/text-input'
 
 export const NameField = () => {
-  const { name, setName } = useSignupForm((state) => state)
+  const { name, setName } = useSignupFormStore((state) => state)
 
   return (
     <TextInput

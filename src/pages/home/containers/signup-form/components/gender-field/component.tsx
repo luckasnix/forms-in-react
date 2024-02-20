@@ -1,8 +1,8 @@
-import { useSignupForm, genders } from '../../../../../../stores/signup-form'
+import { useSignupFormStore, genders } from '../../../../../../stores/signup-form'
 import { Select } from '../../../../../../common/components/select'
 
 export const GenderField = () => {
-  const { gender, setGender } = useSignupForm((state) => state)
+  const { gender, setGender } = useSignupFormStore((state) => state)
 
   return (
     <Select

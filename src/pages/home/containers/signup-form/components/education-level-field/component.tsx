@@ -1,8 +1,8 @@
-import { useSignupForm, educationLevels } from '../../../../../../stores/signup-form'
+import { useSignupFormStore, educationLevels } from '../../../../../../stores/signup-form'
 import { RadioGroup } from '../../../../../../common/components/radio-group'
 
 export const EducationLevelField = () => {
-  const { educationLevel, setEducationLevel } = useSignupForm((state) => state)
+  const { educationLevel, setEducationLevel } = useSignupFormStore((state) => state)
   
   return (
     <RadioGroup

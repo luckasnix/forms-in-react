@@ -1,4 +1,4 @@
-import { useSignupForm } from '../../../../stores/signup-form'
+import { useSignupFormStore } from '../../../../stores/signup-form'
 import { SubmitButton } from '../../../../common/components/submit-button'
 import { NameField } from './components/name-field'
 import { GenderField } from './components/gender-field'
@@ -8,7 +8,7 @@ import { AgreementField } from './components/agreement-field'
 import './styles.css'
 
 export const SignupForm = () => {
-  const { getFields, resetFields } = useSignupForm((state) => state)
+  const { getFields, resetFields } = useSignupFormStore((state) => state)
 
   return (
     <form

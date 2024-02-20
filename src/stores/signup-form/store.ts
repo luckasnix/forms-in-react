@@ -2,7 +2,7 @@ import { create } from 'zustand'
 
 import type { SignupFormStates, SignupFormActions } from './types'
 
-export const useSignupForm = create<SignupFormStates & SignupFormActions>((set, get) => ({
+export const useSignupFormStore = create<SignupFormStates & SignupFormActions>((set, get) => ({
   name: '',
   setName: (name) => set(() => ({ name })),
   gender: '',
