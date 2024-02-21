@@ -1,7 +1,7 @@
 import { useShallow } from 'zustand/react/shallow'
 
-import { useSignupFormStore, educationLevels } from '../../../../../../stores/signup-form'
-import { RadioGroup } from '../../../../../../common/components/radio-group'
+import { useSignupFormStore, educationLevels } from '@/stores/signup-form'
+import { RadioGroup } from '@/common/components/radio-group'
 
 export const EducationLevelField = () => {
   const { educationLevel, setEducationLevel } = useSignupFormStore(

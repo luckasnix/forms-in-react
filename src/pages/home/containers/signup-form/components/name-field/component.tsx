@@ -1,7 +1,7 @@
 import { useShallow } from 'zustand/react/shallow'
 
-import { useSignupFormStore } from '../../../../../../stores/signup-form'
-import { TextInput } from '../../../../../../common/components/text-input'
+import { useSignupFormStore } from '@/stores/signup-form'
+import { TextInput } from '@/common/components/text-input'
 
 export const NameField = () => {
   const { name, setName } = useSignupFormStore(

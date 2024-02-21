@@ -1,7 +1,7 @@
 import { useShallow } from 'zustand/react/shallow'
 
-import { useSignupFormStore, genders } from '../../../../../../stores/signup-form'
-import { Select } from '../../../../../../common/components/select'
+import { useSignupFormStore, genders } from '@/stores/signup-form'
+import { Select } from '@/common/components/select'
 
 export const GenderField = () => {
   const { gender, setGender } = useSignupFormStore(

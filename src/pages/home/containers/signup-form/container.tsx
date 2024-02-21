@@ -1,7 +1,7 @@
 import { useShallow } from 'zustand/react/shallow'
+import { useSignupFormStore } from '@/stores/signup-form'
+import { SubmitButton } from '@/common/components/submit-button'
 
-import { useSignupFormStore } from '../../../../stores/signup-form'
-import { SubmitButton } from '../../../../common/components/submit-button'
 import { NameField } from './components/name-field'
 import { GenderField } from './components/gender-field'
 import { EducationLevelField } from './components/education-level-field'
