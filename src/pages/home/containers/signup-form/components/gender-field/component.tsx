@@ -18,7 +18,7 @@ export const GenderField = () => {
       options={genders}
       disabledOption={{
         value: '',
-        label: 'Seu gênero',
+        label: 'Selecionar',
       }}
     />
   )
