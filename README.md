@@ -1,30 +1,37 @@
-# React + TypeScript + Vite
+# REACT CHALLENGES - CLIENT-SIDE FORM
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O React Challenges é um projeto pessoal que busca reunir projetos exploratórios sobre diferentes tipos de aplicações com o React, usando a minha stack favorita, que é composta por:
 
-Currently, two official plugins are available:
+- Vite ou Next
+- React
+- TypeScript
+- StyleX
+- Zustand
+- Zod
+- Apollo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Sobre o Repositório
 
-## Expanding the ESLint configuration
+Este repositório contém o projeto de um formulário feito para funcionar no client-side (com excessão da submissão do mesmo), isso significa que ele não faz uso das Server Actions para validações no server-side.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Ele também faz uso de apenas controlled components (com estado) e possui diferentes tipos de inputs, que necessitam de diferentes abordagens para funcionar com o React.
 
-- Configure the top-level `parserOptions` property like this:
+Para executar o projeto são necessários alguns passos. Inicialmente é necessário clonar o repositório e navegar para seu diretório:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```shell
+git clone https://github.com/luckasnix/react-challenges-client-side-form.git
+
+cd react-challenges-client-side-form
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+No diretório correto, é importante instalar as dependências:
+
+```shell
+npm install
+```
+
+Por fim, basta executar o projeto:
+
+```shell
+npm run dev
+```
