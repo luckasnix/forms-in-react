@@ -1,6 +1,6 @@
 import * as stylex from '@stylexjs/stylex'
 import { useShallow } from 'zustand/react/shallow'
-import { useSignupFormStore } from '@/stores/signup-form'
+import { useSignupFormStore, validateFields } from '@/stores/signup-form'
 import { SubmitButton } from '@/common/components/submit-button'
 
 import { NameField } from './components/name-field'
@@ -27,7 +27,12 @@ export const SignupForm = () => {
       {...stylex.props(styles.form)}
       onSubmit={(event) => {
         event.preventDefault()
-        window.alert(JSON.stringify(getFields()))
+        const validationResult = validateFields(getFields())
+        if (validationResult.success) {
+          window.console.log(validationResult.data);
+        } else {
+          window.console.log(validationResult.error);
+        }
         resetFields()
       }}
     >

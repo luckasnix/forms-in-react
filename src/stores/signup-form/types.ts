@@ -1,15 +1,17 @@
-export type GenderLabel = 'Feminino' | 'Masculino'
+import { genderValue, genderLabel, educationLevelValue, educationLevelLabel } from './constants'
 
-export type GenderValue = 'female' | 'male'
+export type GenderLabel = typeof genderLabel[number]
+
+export type GenderValue = typeof genderValue[number]
 
 export type Gender = {
   value: GenderValue
   label: GenderLabel
 }
 
-export type EducationLevelLabel = 'Ensino Fundamental' | 'Ensino Médio' | 'Ensino Superior'
+export type EducationLevelLabel = typeof educationLevelLabel[number]
 
-export type EducationLevelValue = 'primary' | 'secondary' | 'tertiary'
+export type EducationLevelValue = typeof educationLevelValue[number]
 
 export type EducationLevel = {
   value: EducationLevelValue
