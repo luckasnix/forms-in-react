@@ -14,6 +14,7 @@ export const AgreementField = () => {
       name='agreement'
       label='Declaro que li e aceito os termos de uso e privacidade'
       value={wasAgreed}
-      setValue={setWasAgreed} />
+      setValue={setWasAgreed}
+    />
   )
 }

@@ -15,6 +15,7 @@ export const EducationLevelField = () => {
       label='Selecione o seu nível de escolaridade:'
       value={educationLevel}
       setValue={setEducationLevel}
-      buttons={educationLevels} />
+      buttons={educationLevels}
+    />
   )
 }
