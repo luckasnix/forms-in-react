@@ -8,7 +8,9 @@ export const Select = <T extends string, U extends string>({ id, name, label, va
       id={id}
       name={name}
       value={value}
-      onChange={(event) => setValue(event.target.value as T)}
+      onChange={(event) => {
+        setValue(event.target.value as T)
+      }}
     >
       <option value={disabledOption.value} disabled>{disabledOption.label}</option>
       {options.map(({ value, label }) => (

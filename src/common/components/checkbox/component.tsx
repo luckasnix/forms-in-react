@@ -7,7 +7,9 @@ export const Checkbox = ({ id, name, label, value, setValue }: CheckboxProps) =>
       id={id}
       name={name}
       checked={value}
-      onChange={(event) => setValue(event.target.checked)}
+      onChange={(event) => {
+        setValue(event.target.checked)
+      }}
     />
     <label htmlFor={id}>{label}</label>
   </div>

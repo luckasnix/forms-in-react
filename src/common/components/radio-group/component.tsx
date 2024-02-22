@@ -14,7 +14,9 @@ export const RadioGroup = <T extends string, U extends string>({ id, name, label
           name={`${name}-${buttonValue}`}
           checked={value === buttonValue}
           value={buttonValue}
-          onChange={(event) => setValue(event.target.value as T)} />
+          onChange={(event) => {
+            setValue(event.target.value as T)
+          }} />
         <label htmlFor={`${id}-${buttonValue}`}>{buttonLabel}</label>
         {index !== buttons.length - 1 && <br />}
       </Fragment>

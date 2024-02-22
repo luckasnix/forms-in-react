@@ -10,7 +10,9 @@ export const TextInput = ({ id, name, label, placeholder, value, setValue }: Tex
       name={name}
       placeholder={placeholder}
       value={value}
-      onChange={(event) => setValue(event.target.value)}
+      onChange={(event) => {
+        setValue(event.target.value)
+      }}
     />
   </div>
 )
