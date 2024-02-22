@@ -23,12 +23,8 @@ export const useSignupFormStore = create<SignupFormStates & SignupFormActions>((
     wasAgreed: get().wasAgreed,
   }),
   validateFields: () => {
-    const parsedFields = signupFormSchema.safeParse({
-      name: get().name,
-      gender: get().gender,
-      educationLevel: get().educationLevel,
-      wasAgreed: get().wasAgreed,
-    })
+    const { name, gender, educationLevel, wasAgreed } = get()
+    const parsedFields = signupFormSchema.safeParse({ name, gender, educationLevel, wasAgreed })
     if (parsedFields.success) {
       set(() => ({
         name: '',
