@@ -4,8 +4,8 @@ import { useSignupFormStore } from '@/stores/signup-form'
 import { TextInput } from '@/common/components/text-input'
 
 export const NameField = () => {
-  const { name, setName } = useSignupFormStore(
-    useShallow((state) => ({ name: state.name, setName: state.setName }))
+  const { name, nameErrors, setName } = useSignupFormStore(
+    useShallow((state) => ({ name: state.name, nameErrors: state.nameErrors, setName: state.setName }))
   )
 
   return (
@@ -16,6 +16,7 @@ export const NameField = () => {
       placeholder='João da Silva'
       value={name}
       setValue={setName}
+      errors={nameErrors}
     />
   )
 }

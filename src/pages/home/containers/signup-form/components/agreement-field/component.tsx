@@ -4,8 +4,8 @@ import { useSignupFormStore } from '@/stores/signup-form'
 import { Checkbox } from '@/common/components/checkbox'
 
 export const AgreementField = () => {
-  const { wasAgreed, setWasAgreed } = useSignupFormStore(
-    useShallow((state) => ({ wasAgreed: state.wasAgreed, setWasAgreed: state.setWasAgreed }))
+  const { wasAgreed, wasAgreedErrors, setWasAgreed } = useSignupFormStore(
+    useShallow((state) => ({ wasAgreed: state.wasAgreed, wasAgreedErrors: state.wasAgreedErrors, setWasAgreed: state.setWasAgreed }))
   )
 
   return (
@@ -15,6 +15,7 @@ export const AgreementField = () => {
       label='Declaro que li e aceito os termos de uso e privacidade'
       value={wasAgreed}
       setValue={setWasAgreed}
+      errors={wasAgreedErrors}
     />
   )
 }

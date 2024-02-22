@@ -4,4 +4,5 @@ export type CheckboxProps = {
   label: string
   value: boolean
   setValue: (value: boolean) => void
+  errors: Array<string>
 }

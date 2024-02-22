@@ -1,8 +1,15 @@
 import { Fragment } from 'react'
+import * as stylex from '@stylexjs/stylex'
 
 import type { RadioGroupProps } from './types'
 
-export const RadioGroup = <T extends string, U extends string>({ id, name, label, value, setValue, buttons }: RadioGroupProps<T, U>) => (
+const styles = stylex.create({
+  errorMessage: {
+    color: '#eb4034',
+  },
+})
+
+export const RadioGroup = <T extends string, U extends string>({ id, name, label, value, setValue, buttons, errors }: RadioGroupProps<T, U>) => (
   <div>
     <label>{label}</label>
     <br />
@@ -21,5 +28,7 @@ export const RadioGroup = <T extends string, U extends string>({ id, name, label
         {index !== buttons.length - 1 && <br />}
       </Fragment>
     ))}
+    <br />
+    {errors.length > 0 && <small {...stylex.props(styles.errorMessage)}>{errors[0]}</small>}
   </div>
 )

@@ -1,6 +1,5 @@
 import * as stylex from '@stylexjs/stylex'
-import { useShallow } from 'zustand/react/shallow'
-import { useSignupFormStore, validateFields } from '@/stores/signup-form'
+import { useSignupFormStore } from '@/stores/signup-form'
 import { SubmitButton } from '@/common/components/submit-button'
 
 import { NameField } from './components/name-field'
@@ -18,22 +17,14 @@ const styles = stylex.create({
 })
 
 export const SignupForm = () => {
-  const { getFields, resetFields } = useSignupFormStore(
-    useShallow((state) => ({ getFields: state.getFields, resetFields: state.resetFields }))
-  )
+  const validateFields = useSignupFormStore((state) => state.validateFields)
 
   return (
     <form
       {...stylex.props(styles.form)}
       onSubmit={(event) => {
         event.preventDefault()
-        const validationResult = validateFields(getFields())
-        if (validationResult.success) {
-          window.console.log(validationResult.data);
-        } else {
-          window.console.log(validationResult.error);
-        }
-        resetFields()
+        validateFields()
       }}
     >
       <h1>Cadastro</h1>

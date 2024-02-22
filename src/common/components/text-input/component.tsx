@@ -1,6 +1,14 @@
+import * as stylex from '@stylexjs/stylex'
+
 import type { TextInputProps} from './types'
 
-export const TextInput = ({ id, name, label, placeholder, value, setValue }: TextInputProps) => (
+const styles = stylex.create({
+  errorMessage: {
+    color: '#eb4034',
+  },
+})
+
+export const TextInput = ({ id, name, label, placeholder, value, setValue, errors }: TextInputProps) => (
   <div>
     <label htmlFor={id}>{label}</label>
     <br />
@@ -14,5 +22,7 @@ export const TextInput = ({ id, name, label, placeholder, value, setValue }: Tex
         setValue(event.target.value)
       }}
     />
+    <br />
+    {errors.length > 0 && <small {...stylex.props(styles.errorMessage)}>{errors[0]}</small>}
   </div>
 )

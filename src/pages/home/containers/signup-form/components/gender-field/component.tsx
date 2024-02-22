@@ -4,8 +4,8 @@ import { useSignupFormStore, genders } from '@/stores/signup-form'
 import { Select } from '@/common/components/select'
 
 export const GenderField = () => {
-  const { gender, setGender } = useSignupFormStore(
-    useShallow((state) => ({ gender: state.gender, setGender: state.setGender }))
+  const { gender, genderErrors, setGender } = useSignupFormStore(
+    useShallow((state) => ({ gender: state.gender, genderErrors: state.genderErrors, setGender: state.setGender }))
   )
 
   return (
@@ -20,6 +20,7 @@ export const GenderField = () => {
         value: '',
         label: 'Selecionar',
       }}
+      errors={genderErrors}
     />
   )
 }

@@ -1,6 +1,15 @@
+import * as stylex from '@stylexjs/stylex'
+
 import type { SelectProps } from './types'
 
-export const Select = <T extends string, U extends string>({ id, name, label, value, setValue, options, disabledOption }: SelectProps<T, U>) => (
+const styles = stylex.create({
+  errorMessage: {
+    color: '#eb4034',
+  },
+})
+
+
+export const Select = <T extends string, U extends string>({ id, name, label, value, setValue, options, disabledOption, errors }: SelectProps<T, U>) => (
   <div>
     <label htmlFor={id}>{label}</label>
     <br />
@@ -17,5 +26,7 @@ export const Select = <T extends string, U extends string>({ id, name, label, va
         <option key={value} value={value}>{label}</option>
       ))}
     </select>
+    <br />
+    {errors.length > 0 && <small {...stylex.props(styles.errorMessage)}>{errors[0]}</small>}
   </div>
 )

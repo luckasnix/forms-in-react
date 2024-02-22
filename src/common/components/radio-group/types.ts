@@ -8,4 +8,5 @@ export type RadioGroupProps<T extends string, U extends string> = {
     value: T
     label: U
   }>
+  errors: Array<string>
 }

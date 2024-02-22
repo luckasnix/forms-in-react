@@ -4,8 +4,8 @@ import { useSignupFormStore, educationLevels } from '@/stores/signup-form'
 import { RadioGroup } from '@/common/components/radio-group'
 
 export const EducationLevelField = () => {
-  const { educationLevel, setEducationLevel } = useSignupFormStore(
-    useShallow((state) => ({ educationLevel: state.educationLevel, setEducationLevel: state.setEducationLevel }))
+  const { educationLevel, educationLevelErrors, setEducationLevel } = useSignupFormStore(
+    useShallow((state) => ({ educationLevel: state.educationLevel, educationLevelErrors: state.educationLevelErrors, setEducationLevel: state.setEducationLevel }))
   )
   
   return (
@@ -16,6 +16,7 @@ export const EducationLevelField = () => {
       value={educationLevel}
       setValue={setEducationLevel}
       buttons={educationLevels}
+      errors={educationLevelErrors}
     />
   )
 }

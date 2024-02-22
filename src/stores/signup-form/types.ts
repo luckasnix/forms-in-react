@@ -23,6 +23,10 @@ export type SignupFormStates = {
   gender: GenderValue | ''
   educationLevel: EducationLevelValue | ''
   wasAgreed: boolean
+  nameErrors: Array<string>
+  genderErrors: Array<string>
+  educationLevelErrors: Array<string>
+  wasAgreedErrors: Array<string>
 }
 
 export type SignupFormActions = {
@@ -30,6 +34,5 @@ export type SignupFormActions = {
   setGender: (gender: GenderValue | '') => void
   setEducationLevel: (educationLevel: EducationLevelValue | '') => void
   setWasAgreed: (wasAgreed: boolean) => void
-  getFields: () => SignupFormStates
-  resetFields: () => void
+  validateFields: () => void
 }

@@ -1,6 +1,14 @@
+import * as stylex from '@stylexjs/stylex'
+
 import type { CheckboxProps } from './types'
 
-export const Checkbox = ({ id, name, label, value, setValue }: CheckboxProps) => (
+const styles = stylex.create({
+  errorMessage: {
+    color: '#eb4034',
+  },
+})
+
+export const Checkbox = ({ id, name, label, value, setValue, errors }: CheckboxProps) => (
   <div>
     <input
       type='checkbox'
@@ -12,5 +20,7 @@ export const Checkbox = ({ id, name, label, value, setValue }: CheckboxProps) =>
       }}
     />
     <label htmlFor={id}>{label}</label>
+    <br />
+    {errors.length > 0 && <small {...stylex.props(styles.errorMessage)}>{errors[0]}</small>}
   </div>
 )

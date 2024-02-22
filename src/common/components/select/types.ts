@@ -12,4 +12,5 @@ export type SelectProps<T extends string, U extends string> = {
     value: ''
     label: string
   }
+  errors: Array<string>
 }

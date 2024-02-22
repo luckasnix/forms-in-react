@@ -5,4 +5,5 @@ export type TextInputProps = {
   placeholder: string
   value: string
   setValue: (value: string) => void
+  errors: Array<string>
 }
