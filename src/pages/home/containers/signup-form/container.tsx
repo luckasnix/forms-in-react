@@ -1,3 +1,4 @@
+import * as stylex from '@stylexjs/stylex'
 import { useShallow } from 'zustand/react/shallow'
 import { useSignupFormStore } from '@/stores/signup-form'
 import { SubmitButton } from '@/common/components/submit-button'
@@ -7,7 +8,14 @@ import { GenderField } from './components/gender-field'
 import { EducationLevelField } from './components/education-level-field'
 import { AgreementField } from './components/agreement-field'
 
-import './styles.css'
+const styles = stylex.create({
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'start',
+    gap: '16px',
+  },
+})
 
 export const SignupForm = () => {
   const { getFields, resetFields } = useSignupFormStore(
@@ -16,7 +24,7 @@ export const SignupForm = () => {
 
   return (
     <form
-      className='form'
+      {...stylex.props(styles.form)}
       onSubmit={(event) => {
         event.preventDefault()
         window.alert(JSON.stringify(getFields()))
