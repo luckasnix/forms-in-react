@@ -16,12 +16,6 @@ export const useSignupFormStore = create<SignupFormStates & SignupFormActions>((
   setGender: (gender) => set(() => ({ gender })),
   setEducationLevel: (educationLevel) => set(() => ({ educationLevel })),
   setWasAgreed: (wasAgreed) => set(() => ({ wasAgreed })),
-  getFields: () => ({
-    name: get().name,
-    gender: get().gender,
-    educationLevel: get().educationLevel,
-    wasAgreed: get().wasAgreed,
-  }),
   validateFields: () => {
     const { name, gender, educationLevel, wasAgreed } = get()
     const parsedFields = signupFormSchema.safeParse({ name, gender, educationLevel, wasAgreed })
