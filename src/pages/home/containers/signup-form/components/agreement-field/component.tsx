@@ -1,12 +1,11 @@
-import { useShallow } from 'zustand/react/shallow'
+import { useStore } from '@tanstack/react-store'
 
-import { useSignupFormStore } from '@/stores/signup-form'
+import { signupFormStore, setWasAgreed } from '@/stores/signup-form'
 import { Checkbox } from '@/common/components/checkbox'
 
 export const AgreementField = () => {
-  const { wasAgreed, wasAgreedErrors, setWasAgreed } = useSignupFormStore(
-    useShallow((state) => ({ wasAgreed: state.wasAgreed, wasAgreedErrors: state.wasAgreedErrors, setWasAgreed: state.setWasAgreed }))
-  )
+  const wasAgreed = useStore(signupFormStore, (state) => state.wasAgreed)
+  const wasAgreedErrors = useStore(signupFormStore, (state) => state.wasAgreedErrors)
 
   return (
     <Checkbox

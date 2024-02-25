@@ -1,9 +1,9 @@
-import { create } from 'zustand'
+import { Store } from '@tanstack/react-store'
 
 import { signupFormSchema } from './constants'
-import type { SignupFormStates, SignupFormActions } from './types'
+import type { SignupFormStates, GenderValue, EducationLevelValue } from './types'
 
-export const useSignupFormStore = create<SignupFormStates & SignupFormActions>((set, get) => ({
+export const signupFormStore = new Store<SignupFormStates>({
   name: '',
   gender: '',
   educationLevel: '',
@@ -12,38 +12,62 @@ export const useSignupFormStore = create<SignupFormStates & SignupFormActions>((
   genderErrors: [],
   educationLevelErrors: [],
   wasAgreedErrors: [],
-  setName: (name) => set(() => ({ name })),
-  setGender: (gender) => set(() => ({ gender })),
-  setEducationLevel: (educationLevel) => set(() => ({ educationLevel })),
-  setWasAgreed: (wasAgreed) => set(() => ({ wasAgreed })),
-  getFields: () => ({
-    name: get().name,
-    gender: get().gender,
-    educationLevel: get().educationLevel,
-    wasAgreed: get().wasAgreed,
-  }),
-  validateFields: () => {
-    const { name, gender, educationLevel, wasAgreed } = get()
-    const parsedFields = signupFormSchema.safeParse({ name, gender, educationLevel, wasAgreed })
-    if (parsedFields.success) {
-      set(() => ({
-        name: '',
-        gender: '',
-        educationLevel: '',
-        wasAgreed: false,
-        nameErrors: [],
-        genderErrors: [],
-        educationLevelErrors: [],
-        wasAgreedErrors: [],
-      }))
-    } else {
-      const fieldErrors = parsedFields.error.flatten().fieldErrors
-      set(() => ({
-        nameErrors: fieldErrors?.name ? fieldErrors.name : [],
-        genderErrors: fieldErrors?.gender ? fieldErrors.gender : [],
-        educationLevelErrors: fieldErrors?.educationLevel ? fieldErrors.educationLevel : [],
-        wasAgreedErrors: fieldErrors?.wasAgreed ? fieldErrors.wasAgreed : [],
-      }))
-    }
-  },
-}))
+})
+
+export const setName = (name: string) => {
+  signupFormStore.setState((state) => ({
+    ...state,
+    name,
+  }))
+}
+
+export const setGender = (gender: GenderValue | '') => {
+  signupFormStore.setState((state) => ({
+    ...state,
+    gender,
+  }))
+}
+
+export const setEducationLevel = (educationLevel: EducationLevelValue | '') => {
+  signupFormStore.setState((state) => ({
+    ...state,
+    educationLevel,
+  }))
+}
+
+export const setWasAgreed = (wasAgreed: boolean) => {
+  signupFormStore.setState((state) => ({
+    ...state,
+    wasAgreed,
+  }))
+}
+
+export const validateFields = () => {
+  const parsedFields = signupFormSchema.safeParse({
+    name: signupFormStore.state.name,
+    gender: signupFormStore.state.gender,
+    educationLevel: signupFormStore.state.educationLevel,
+    wasAgreed: signupFormStore.state.wasAgreed,
+  })
+  if (parsedFields.success) {
+    signupFormStore.setState(() => ({
+      name: '',
+      gender: '',
+      educationLevel: '',
+      wasAgreed: false,
+      nameErrors: [],
+      genderErrors: [],
+      educationLevelErrors: [],
+      wasAgreedErrors: [],
+    }))
+  } else {
+    const fieldErrors = parsedFields.error.flatten().fieldErrors
+    signupFormStore.setState((state) => ({
+      ...state,
+      nameErrors: fieldErrors?.name ? fieldErrors.name : [],
+      genderErrors: fieldErrors?.gender ? fieldErrors.gender : [],
+      educationLevelErrors: fieldErrors?.educationLevel ? fieldErrors.educationLevel : [],
+      wasAgreedErrors: fieldErrors?.wasAgreed ? fieldErrors.wasAgreed : [],
+    }))
+  }
+}

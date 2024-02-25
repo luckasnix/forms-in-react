@@ -1,13 +1,12 @@
-import { useShallow } from 'zustand/react/shallow'
+import { useStore } from '@tanstack/react-store'
 
-import { useSignupFormStore, educationLevels } from '@/stores/signup-form'
+import { signupFormStore, setEducationLevel, educationLevels } from '@/stores/signup-form'
 import { RadioGroup } from '@/common/components/radio-group'
 
 export const EducationLevelField = () => {
-  const { educationLevel, educationLevelErrors, setEducationLevel } = useSignupFormStore(
-    useShallow((state) => ({ educationLevel: state.educationLevel, educationLevelErrors: state.educationLevelErrors, setEducationLevel: state.setEducationLevel }))
-  )
-  
+  const educationLevel = useStore(signupFormStore, (state) => state.educationLevel)
+  const educationLevelErrors = useStore(signupFormStore, (state) => state.educationLevelErrors)
+
   return (
     <RadioGroup
       id='education-level'

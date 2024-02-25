@@ -1,12 +1,11 @@
-import { useShallow } from 'zustand/react/shallow'
+import { useStore } from '@tanstack/react-store'
 
-import { useSignupFormStore } from '@/stores/signup-form'
+import { signupFormStore, setName } from '@/stores/signup-form'
 import { TextInput } from '@/common/components/text-input'
 
 export const NameField = () => {
-  const { name, nameErrors, setName } = useSignupFormStore(
-    useShallow((state) => ({ name: state.name, nameErrors: state.nameErrors, setName: state.setName }))
-  )
+  const name = useStore(signupFormStore, (state) => state.name)
+  const nameErrors = useStore(signupFormStore, (state) => state.nameErrors)
 
   return (
     <TextInput

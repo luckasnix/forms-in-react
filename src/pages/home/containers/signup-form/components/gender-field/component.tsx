@@ -1,12 +1,11 @@
-import { useShallow } from 'zustand/react/shallow'
+import { useStore } from '@tanstack/react-store'
 
-import { useSignupFormStore, genders } from '@/stores/signup-form'
+import { signupFormStore, setGender, genders } from '@/stores/signup-form'
 import { Select } from '@/common/components/select'
 
 export const GenderField = () => {
-  const { gender, genderErrors, setGender } = useSignupFormStore(
-    useShallow((state) => ({ gender: state.gender, genderErrors: state.genderErrors, setGender: state.setGender }))
-  )
+  const gender = useStore(signupFormStore, (state) => state.gender)
+  const genderErrors = useStore(signupFormStore, (state) => state.genderErrors)
 
   return (
     <Select

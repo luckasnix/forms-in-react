@@ -1,5 +1,6 @@
 import * as stylex from '@stylexjs/stylex'
-import { useSignupFormStore } from '@/stores/signup-form'
+
+import { validateFields } from '@/stores/signup-form'
 import { SubmitButton } from '@/common/components/submit-button'
 
 import { NameField } from './components/name-field'
@@ -16,23 +17,19 @@ const styles = stylex.create({
   },
 })
 
-export const SignupForm = () => {
-  const validateFields = useSignupFormStore((state) => state.validateFields)
-
-  return (
-    <form
-      {...stylex.props(styles.form)}
-      onSubmit={(event) => {
-        event.preventDefault()
-        validateFields()
-      }}
-    >
-      <h1>Cadastro</h1>
-      <NameField />
-      <GenderField />
-      <EducationLevelField />
-      <AgreementField />
-      <SubmitButton label='Cadastrar' />
-    </form>
-  )
-}
+export const SignupForm = () => (
+  <form
+    {...stylex.props(styles.form)}
+    onSubmit={(event) => {
+      event.preventDefault()
+      validateFields()
+    }}
+  >
+    <h1>Cadastro</h1>
+    <NameField />
+    <GenderField />
+    <EducationLevelField />
+    <AgreementField />
+    <SubmitButton label='Cadastrar' />
+  </form>
+)
