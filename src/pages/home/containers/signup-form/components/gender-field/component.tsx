@@ -4,8 +4,10 @@ import { signupFormStore, setGender, genders } from '@/stores/signup-form'
 import { Select } from '@/common/components/select'
 
 export const GenderField = () => {
-  const gender = useStore(signupFormStore, (state) => state.gender)
-  const genderErrors = useStore(signupFormStore, (state) => state.genderErrors)
+  const { gender, genderErrors } = useStore(signupFormStore, (state) => ({
+    gender: state.gender,
+    genderErrors: state.genderErrors,
+  }))
 
   return (
     <Select

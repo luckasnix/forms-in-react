@@ -4,8 +4,10 @@ import { signupFormStore, setEducationLevel, educationLevels } from '@/stores/si
 import { RadioGroup } from '@/common/components/radio-group'
 
 export const EducationLevelField = () => {
-  const educationLevel = useStore(signupFormStore, (state) => state.educationLevel)
-  const educationLevelErrors = useStore(signupFormStore, (state) => state.educationLevelErrors)
+  const { educationLevel, educationLevelErrors } = useStore(signupFormStore, (state) => ({
+    educationLevel: state.educationLevel,
+    educationLevelErrors: state.educationLevelErrors,
+  }))
 
   return (
     <RadioGroup

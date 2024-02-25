@@ -4,8 +4,10 @@ import { signupFormStore, setName } from '@/stores/signup-form'
 import { TextInput } from '@/common/components/text-input'
 
 export const NameField = () => {
-  const name = useStore(signupFormStore, (state) => state.name)
-  const nameErrors = useStore(signupFormStore, (state) => state.nameErrors)
+  const { name, nameErrors } = useStore(signupFormStore, (state) => ({
+    name: state.name,
+    nameErrors: state.nameErrors,
+  }))
 
   return (
     <TextInput

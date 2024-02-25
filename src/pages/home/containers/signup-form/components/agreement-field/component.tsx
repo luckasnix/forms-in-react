@@ -4,8 +4,10 @@ import { signupFormStore, setWasAgreed } from '@/stores/signup-form'
 import { Checkbox } from '@/common/components/checkbox'
 
 export const AgreementField = () => {
-  const wasAgreed = useStore(signupFormStore, (state) => state.wasAgreed)
-  const wasAgreedErrors = useStore(signupFormStore, (state) => state.wasAgreedErrors)
+  const { wasAgreed, wasAgreedErrors } = useStore(signupFormStore, (state) => ({
+    wasAgreed: state.wasAgreed,
+    wasAgreedErrors: state.wasAgreedErrors,
+  }))
 
   return (
     <Checkbox
