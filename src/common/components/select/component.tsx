@@ -3,6 +3,11 @@ import * as stylex from '@stylexjs/stylex'
 import type { SelectProps } from './types'
 
 const styles = stylex.create({
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '2px',
+  },
   errorMessage: {
     color: '#eb4034',
   },
@@ -10,9 +15,8 @@ const styles = stylex.create({
 
 
 export const Select = <T extends string, U extends string>({ id, name, label, value, setValue, options, disabledOption, errors }: SelectProps<T, U>) => (
-  <div>
+  <div {...stylex.props(styles.container)}>
     <label htmlFor={id}>{label}</label>
-    <br />
     <select
       id={id}
       name={name}
@@ -26,7 +30,6 @@ export const Select = <T extends string, U extends string>({ id, name, label, va
         <option key={value} value={value}>{label}</option>
       ))}
     </select>
-    <br />
     {errors.length > 0 && <small {...stylex.props(styles.errorMessage)}>{errors[0]}</small>}
   </div>
 )
