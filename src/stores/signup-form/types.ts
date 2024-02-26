@@ -18,7 +18,7 @@ export type EducationLevel = {
   label: EducationLevelLabel
 }
 
-export type SignupFormStates = {
+export type SignupFormStore = {
   name: string
   gender: GenderValue | ''
   educationLevel: EducationLevelValue | ''
@@ -27,12 +27,4 @@ export type SignupFormStates = {
   genderErrors: Array<string>
   educationLevelErrors: Array<string>
   wasAgreedErrors: Array<string>
-}
-
-export type SignupFormActions = {
-  setName: (name: string) => void
-  setGender: (gender: GenderValue | '') => void
-  setEducationLevel: (educationLevel: EducationLevelValue | '') => void
-  setWasAgreed: (wasAgreed: boolean) => void
-  validateFields: () => void
 }

@@ -1,9 +1,9 @@
 import { Store } from '@tanstack/react-store'
 
 import { signupFormSchema } from './constants'
-import type { SignupFormStates, GenderValue, EducationLevelValue } from './types'
+import type { SignupFormStore, GenderValue, EducationLevelValue } from './types'
 
-export const signupFormStore = new Store<SignupFormStates>({
+export const signupFormStore = new Store<SignupFormStore>({
   name: '',
   gender: '',
   educationLevel: '',
