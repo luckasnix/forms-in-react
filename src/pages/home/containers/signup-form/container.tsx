@@ -1,5 +1,5 @@
 import * as stylex from '@stylexjs/stylex'
-import { useSignupFormStore } from '@/stores/signup-form'
+import { useSignupFormContext } from '@/contexts/signup-form'
 import { SubmitButton } from '@/common/components/submit-button'
 
 import { NameField } from './components/name-field'
@@ -17,7 +17,7 @@ const styles = stylex.create({
 })
 
 export const SignupForm = () => {
-  const validateFields = useSignupFormStore((state) => state.validateFields)
+  const { validateFields } = useSignupFormContext()
 
   return (
     <form

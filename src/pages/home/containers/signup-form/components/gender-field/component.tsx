@@ -1,26 +1,24 @@
-import { useShallow } from 'zustand/react/shallow'
-
-import { useSignupFormStore, genders } from '@/stores/signup-form'
+import { useSignupFormContext, genders, type GenderValue } from '@/contexts/signup-form'
 import { Select } from '@/common/components/select'
 
 export const GenderField = () => {
-  const { gender, genderErrors, setGender } = useSignupFormStore(
-    useShallow((state) => ({ gender: state.gender, genderErrors: state.genderErrors, setGender: state.setGender }))
-  )
+  const { signupFormState, signupFormDispatch } = useSignupFormContext()
 
   return (
     <Select
       id='gender'
       name='gender'
       label='Selecione o seu gênero:'
-      value={gender}
-      setValue={setGender}
+      value={signupFormState.gender}
+      setValue={(value: GenderValue | '') => {
+        signupFormDispatch({ type: 'SET_GENDER', payload: value })
+      }}
       options={genders}
       disabledOption={{
         value: '',
         label: 'Selecionar',
       }}
-      errors={genderErrors}
+      errors={signupFormState.genderErrors}
     />
   )
 }

@@ -1,22 +1,20 @@
-import { useShallow } from 'zustand/react/shallow'
-
-import { useSignupFormStore, educationLevels } from '@/stores/signup-form'
+import { useSignupFormContext, educationLevels, type EducationLevelValue } from '@/contexts/signup-form'
 import { RadioGroup } from '@/common/components/radio-group'
 
 export const EducationLevelField = () => {
-  const { educationLevel, educationLevelErrors, setEducationLevel } = useSignupFormStore(
-    useShallow((state) => ({ educationLevel: state.educationLevel, educationLevelErrors: state.educationLevelErrors, setEducationLevel: state.setEducationLevel }))
-  )
+  const { signupFormState, signupFormDispatch } = useSignupFormContext()
   
   return (
     <RadioGroup
       id='education-level'
       name='education-level'
       label='Selecione o seu nível de escolaridade:'
-      value={educationLevel}
-      setValue={setEducationLevel}
+      value={signupFormState.educationLevel}
+      setValue={(value: EducationLevelValue | '') => {
+        signupFormDispatch({ type: 'SET_EDUCATION_LEVEL', payload: value })
+      }}
       buttons={educationLevels}
-      errors={educationLevelErrors}
+      errors={signupFormState.educationLevelErrors}
     />
   )
 }

@@ -1,12 +1,8 @@
-import { useShallow } from 'zustand/react/shallow'
-
-import { useSignupFormStore } from '@/stores/signup-form'
+import { useSignupFormContext } from '@/contexts/signup-form'
 import { TextInput } from '@/common/components/text-input'
 
 export const NameField = () => {
-  const { name, nameErrors, setName } = useSignupFormStore(
-    useShallow((state) => ({ name: state.name, nameErrors: state.nameErrors, setName: state.setName }))
-  )
+  const { signupFormState, signupFormDispatch } = useSignupFormContext()
 
   return (
     <TextInput
@@ -14,9 +10,11 @@ export const NameField = () => {
       name='name'
       label='Insira o seu nome:'
       placeholder='João da Silva'
-      value={name}
-      setValue={setName}
-      errors={nameErrors}
+      value={signupFormState.name}
+      setValue={(value: string) => {
+        signupFormDispatch({ type: 'SET_NAME', payload: value })
+      }}
+      errors={signupFormState.nameErrors}
     />
   )
 }
