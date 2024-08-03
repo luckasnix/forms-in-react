@@ -1,5 +1,4 @@
 export type SelectProps<T extends string, U extends string> = {
-  id: string
   name: string
   label: string
   value: T | ''

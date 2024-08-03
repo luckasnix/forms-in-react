@@ -50,6 +50,7 @@ export const validateFields = () => {
     wasAgreed: signupFormStore.state.wasAgreed,
   })
   if (parsedFields.success) {
+    window.console.log(signupFormStore.state);
     signupFormStore.setState(() => ({
       name: '',
       gender: '',

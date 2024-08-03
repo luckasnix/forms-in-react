@@ -11,7 +11,6 @@ export const NameField = () => {
 
   return (
     <TextInput
-      id='name'
       name='name'
       label='Insira o seu nome:'
       placeholder='João da Silva'

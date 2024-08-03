@@ -1,5 +1,4 @@
-export type RadioGroupProps<T extends string, U extends string> = {
-  id: string
+export type RadioButtonGroupProps<T extends string, U extends string> = {
   name: string
   label: string
   value: T | ''

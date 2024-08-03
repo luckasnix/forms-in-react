@@ -1,7 +1,7 @@
 import { useStore } from '@tanstack/react-store'
 
 import { signupFormStore, setEducationLevel, educationLevels } from '@/stores/signup-form'
-import { RadioGroup } from '@/common/components/radio-group'
+import { RadioButtonGroup } from '@/common/components/radio-button-group'
 
 export const EducationLevelField = () => {
   const { educationLevel, educationLevelErrors } = useStore(signupFormStore, (state) => ({
@@ -10,8 +10,7 @@ export const EducationLevelField = () => {
   }))
 
   return (
-    <RadioGroup
-      id='education-level'
+    <RadioButtonGroup
       name='education-level'
       label='Selecione o seu nível de escolaridade:'
       value={educationLevel}

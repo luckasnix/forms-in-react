@@ -1,6 +1,7 @@
+import { useId } from 'react'
 import * as stylex from '@stylexjs/stylex'
 
-import type { TextInputProps} from './types'
+import type { TextInputProps } from './types'
 
 const styles = stylex.create({
   errorMessage: {
@@ -8,21 +9,24 @@ const styles = stylex.create({
   },
 })
 
-export const TextInput = ({ id, name, label, placeholder, value, setValue, errors }: TextInputProps) => (
-  <div>
-    <label htmlFor={id}>{label}</label>
-    <br />
-    <input
-      type='text'
-      id={id}
-      name={name}
-      placeholder={placeholder}
-      value={value}
-      onChange={(event) => {
-        setValue(event.target.value)
-      }}
-    />
-    <br />
-    {errors.length > 0 && <small {...stylex.props(styles.errorMessage)}>{errors[0]}</small>}
-  </div>
-)
+export const TextInput = ({ name, label, placeholder, value, setValue, errors }: TextInputProps) => {
+  const id = useId()
+
+  return (
+    <div>
+      <label htmlFor={id}>{label}</label>
+      <br />
+      <input
+        type='text'
+        id={id}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={(event) => {
+          setValue(event.target.value)
+        }} />
+      <br />
+      {errors.length > 0 && <small {...stylex.props(styles.errorMessage)}>{errors[0]}</small>}
+    </div>
+  )
+}

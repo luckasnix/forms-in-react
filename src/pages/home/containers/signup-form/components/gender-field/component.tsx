@@ -11,7 +11,6 @@ export const GenderField = () => {
 
   return (
     <Select
-      id='gender'
       name='gender'
       label='Selecione o seu gênero:'
       value={gender}
