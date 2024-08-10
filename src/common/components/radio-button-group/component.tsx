@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import * as stylex from '@stylexjs/stylex'
 
-import { RadioButton } from '../radio-button'
+import { RadioButton } from '@/common/components/radio-button'
 
 import type { RadioButtonGroupProps } from './types'
 
@@ -27,6 +27,8 @@ export const RadioButtonGroup = <T extends string, U extends string>({ name, lab
       </Fragment>
     ))}
     <br />
-    {errors.length > 0 && <small {...stylex.props(styles.errorMessage)}>{errors[0]}</small>}
+    {errors.length > 0 && (
+      <small {...stylex.props(styles.errorMessage)}>{errors[0]}</small>
+    )}
   </div>
 )

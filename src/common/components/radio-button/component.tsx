@@ -1,17 +1,12 @@
 import { useId } from 'react'
-import * as stylex from '@stylexjs/stylex'
 
 import type { RadioButtonProps } from './types'
-
-const styles = stylex.create({
-  container: {},
-})
 
 export const RadioButton = <T extends string>({ name, value, setValue, buttonValue, buttonLabel }: RadioButtonProps<T>) => {
   const id = useId()
 
   return (
-    <div {...stylex.props(styles.container)}>
+    <div>
       <input
         type='radio'
         id={id}

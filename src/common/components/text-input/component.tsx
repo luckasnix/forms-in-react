@@ -26,7 +26,9 @@ export const TextInput = ({ name, label, placeholder, value, setValue, errors }:
           setValue(event.target.value)
         }} />
       <br />
-      {errors.length > 0 && <small {...stylex.props(styles.errorMessage)}>{errors[0]}</small>}
+      {errors.length > 0 && (
+        <small {...stylex.props(styles.errorMessage)}>{errors[0]}</small>
+      )}
     </div>
   )
 }

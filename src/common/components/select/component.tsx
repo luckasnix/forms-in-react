@@ -30,7 +30,9 @@ export const Select = <T extends string, U extends string>({ name, label, value,
         ))}
       </select>
       <br />
-      {errors.length > 0 && <small {...stylex.props(styles.errorMessage)}>{errors[0]}</small>}
+      {errors.length > 0 && (
+        <small {...stylex.props(styles.errorMessage)}>{errors[0]}</small>
+      )}
     </div>
   )
 }

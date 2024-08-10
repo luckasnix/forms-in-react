@@ -24,7 +24,9 @@ export const Checkbox = ({ name, label, value, setValue, errors }: CheckboxProps
         }} />
       <label htmlFor={id}>{label}</label>
       <br />
-      {errors.length > 0 && <small {...stylex.props(styles.errorMessage)}>{errors[0]}</small>}
+      {errors.length > 0 && (
+        <small {...stylex.props(styles.errorMessage)}>{errors[0]}</small>
+      )}
     </div>
   )
 }
