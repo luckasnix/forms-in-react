@@ -9,7 +9,15 @@ const styles = stylex.create({
   },
 })
 
-export const Select = <T extends string, U extends string>({ name, label, value, setValue, options, disabledOption, errors }: SelectProps<T, U>) => {
+export const Select = <T extends string, U extends string>({
+  name,
+  label,
+  value,
+  setValue,
+  options,
+  disabledOption,
+  errors,
+}: SelectProps<T, U>) => {
   const id = useId()
 
   return (

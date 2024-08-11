@@ -2,7 +2,13 @@ import { useId } from 'react'
 
 import type { RadioButtonProps } from './types'
 
-export const RadioButton = <T extends string>({ name, value, setValue, buttonValue, buttonLabel }: RadioButtonProps<T>) => {
+export const RadioButton = <T extends string>({
+  name,
+  value,
+  setValue,
+  buttonValue,
+  buttonLabel,
+}: RadioButtonProps<T>) => {
   const id = useId()
 
   return (

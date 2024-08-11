@@ -9,7 +9,14 @@ const styles = stylex.create({
   },
 })
 
-export const TextInput = ({ name, label, placeholder, value, setValue, errors }: TextInputProps) => {
+export const TextInput = ({
+  name,
+  label,
+  placeholder,
+  value,
+  setValue,
+  errors,
+}: TextInputProps) => {
   const id = useId()
 
   return (
@@ -24,7 +31,8 @@ export const TextInput = ({ name, label, placeholder, value, setValue, errors }:
         value={value}
         onChange={(event) => {
           setValue(event.target.value)
-        }} />
+        }}
+      />
       <br />
       {errors.length > 0 && (
         <small {...stylex.props(styles.errorMessage)}>{errors[0]}</small>

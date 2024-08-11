@@ -21,7 +21,8 @@ export const Checkbox = ({ name, label, value, setValue, errors }: CheckboxProps
         checked={value}
         onChange={(event) => {
           setValue(event.target.checked)
-        }} />
+        }}
+      />
       <label htmlFor={id}>{label}</label>
       <br />
       {errors.length > 0 && (

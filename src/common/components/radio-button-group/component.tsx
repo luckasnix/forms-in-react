@@ -11,7 +11,14 @@ const styles = stylex.create({
   },
 })
 
-export const RadioButtonGroup = <T extends string, U extends string>({ name, label, value, setValue, buttons, errors }: RadioButtonGroupProps<T, U>) => (
+export const RadioButtonGroup = <T extends string, U extends string>({
+  name,
+  label,
+  value,
+  setValue,
+  buttons,
+  errors,
+}: RadioButtonGroupProps<T, U>) => (
   <div>
     <label>{label}</label>
     <br />
